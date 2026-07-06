@@ -5,6 +5,10 @@
   "private": true,
   "type": "commonjs",
   "scripts": {
+    "setup": "npm install && npm --prefix webapp install && npx playwright install chromium",
+    "qa": "node -r dotenv/config tests/scripts/run-qa.js",
+    "qa:headed": "node -r dotenv/config tests/scripts/run-qa.js --headed",
+    "clean": "node tests/scripts/clean.js",
     "test": "playwright test --project=chromium",
     "test:headed": "playwright test --project=chromium --headed",
     "test:signin": "playwright test tests/signin.spec.js --project=chromium",

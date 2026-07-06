@@ -59,11 +59,6 @@ export default function SignUpPage() {
     <div className="auth-shell">
       <div className="auth-card" data-testid="signup-card">
         <div className="spec-tab">
-          <span className="dots">
-            <span className="dot red" />
-            <span className="dot amber" />
-            <span className="dot green" />
-          </span>
           <span className="filename">tests/signup.spec.js</span>
           <span className="status-chip">10 passed</span>
         </div>

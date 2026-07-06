@@ -6,7 +6,11 @@ module.exports = defineConfig({
   timeout: 30000,
   retries: 0,
   fullyParallel: true,
-  reporter: [['list'], ['html', { outputFolder: 'playwright-report', open: 'never' }]],
+  reporter: [
+    ['list'],
+    ['html', { outputFolder: 'playwright-report', open: 'never' }],
+    ['./tests/reporters/minimal-html-reporter.js', { outputFile: 'qa-report/index.html' }],
+  ],
   use: {
     baseURL: 'http://localhost:4173',
     headless: true,
