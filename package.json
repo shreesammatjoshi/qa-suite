@@ -1,0 +1,19 @@
+{
+  "name": "auth-qa-suite",
+  "version": "1.0.0",
+  "description": "Playwright end-to-end test suite for the auth demo app",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "test": "playwright test --project=chromium",
+    "test:headed": "playwright test --project=chromium --headed",
+    "test:signin": "playwright test tests/signin.spec.js --project=chromium",
+    "test:signup": "playwright test tests/signup.spec.js --project=chromium",
+    "ai:generate": "node -r dotenv/config tests/scripts/generate-ai-cases.js",
+    "report": "playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.48.0",
+    "dotenv": "^16.4.5"
+  }
+}

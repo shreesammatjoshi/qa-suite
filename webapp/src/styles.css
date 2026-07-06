@@ -1,0 +1,239 @@
+:root {
+  --paper: #eef1f5;
+  --card: #ffffff;
+  --ink: #1b232c;
+  --ink-soft: #5c6773;
+  --line: #d7dde3;
+  --amber: #e2a33d;
+  --amber-ink: #7a4e0c;
+  --green: #2f8f5b;
+  --green-bg: #e9f5ee;
+  --red: #c1443c;
+  --red-bg: #fbeae8;
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background: var(--paper);
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 28px 28px;
+  color: var(--ink);
+}
+
+.auth-shell {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 400px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  box-shadow: 0 1px 2px rgba(27, 35, 44, 0.04), 0 12px 32px rgba(27, 35, 44, 0.08);
+  overflow: hidden;
+}
+
+/* Signature element: editor-tab chrome referencing the real spec file */
+.spec-tab {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  background: var(--ink);
+  border-bottom: 1px solid var(--line);
+}
+
+.spec-tab .dots {
+  display: flex;
+  gap: 6px;
+}
+
+.spec-tab .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.spec-tab .dot.red { background: var(--red); }
+.spec-tab .dot.amber { background: var(--amber); }
+.spec-tab .dot.green { background: var(--green); }
+
+.spec-tab .filename {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: #cfd6dd;
+  flex: 1;
+  letter-spacing: 0.01em;
+}
+
+.spec-tab .status-chip {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: var(--green-bg);
+  color: var(--green);
+  white-space: nowrap;
+}
+
+.auth-body {
+  padding: 32px;
+}
+
+.auth-body h1 {
+  margin: 0 0 6px;
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.auth-body p.subtitle {
+  margin: 0 0 26px;
+  color: var(--ink-soft);
+  font-size: 14px;
+}
+
+.field {
+  margin-bottom: 18px;
+}
+
+.field label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 7px;
+  color: var(--ink-soft);
+}
+
+.field input[type='text'],
+.field input[type='password'] {
+  width: 100%;
+  padding: 11px 12px;
+  border-radius: 7px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 14px;
+  font-family: var(--font-body);
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.field input[type='text']:focus,
+.field input[type='password']:focus {
+  outline: none;
+  border-color: var(--amber);
+  background: var(--card);
+}
+
+.field-error {
+  color: var(--red);
+  font-size: 12px;
+  margin-top: 6px;
+  font-family: var(--font-body);
+}
+
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.checkbox-row input[type='checkbox'] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--amber);
+}
+
+.checkbox-row label {
+  margin-bottom: 0;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: normal;
+  color: var(--ink);
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 7px;
+  background: var(--ink);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 4px;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.submit-btn:hover:not(:disabled) {
+  background: #2b3542;
+}
+
+.submit-btn:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.submit-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.form-banner {
+  padding: 11px 14px;
+  border-radius: 7px;
+  font-size: 13px;
+  margin-bottom: 18px;
+  font-family: var(--font-body);
+  border: 1px solid transparent;
+}
+
+.form-banner.success {
+  background: var(--green-bg);
+  color: var(--green);
+  border-color: #bfe4cf;
+}
+
+.form-banner.error {
+  background: var(--red-bg);
+  color: var(--red);
+  border-color: #f0c6c1;
+}
+
+.switch-link {
+  margin-top: 22px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+.switch-link a {
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid var(--amber);
+}
